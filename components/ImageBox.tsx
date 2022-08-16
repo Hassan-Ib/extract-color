@@ -36,7 +36,7 @@ const ImageBox = (props: Props) => {
         };
         const { data } = await extractColor(serveDataFormat);
         // const { data } = getImageColorExtract();
-        console.log(data);
+        // console.log(data);
         const formattedData = data.image_colors.map((color) => {
           const {
             r,
@@ -58,7 +58,7 @@ const ImageBox = (props: Props) => {
         toast.success("color successfully extracted");
       };
     } catch (error) {
-      console.log("error", error);
+      // console.log("error", error);
       if (error instanceof Error) {
         toast.error(error.message);
         return;
