@@ -1,11 +1,15 @@
 import { COLORAPI_BASE_URL } from "./base_urls";
 import axios from "axios";
+import { IImageColorExtract } from "../utils/types";
 const BASE_URL = "/api/v1";
+interface file {
+  data: string;
+}
 
-const uploadImage = async (formData: FormData) => {
-  const url = BASE_URL + "/colorgen";
+const uploadImage = async (file: file): Promise<IImageColorExtract> => {
+  const url = BASE_URL + "/extract-color";
   return axios
-    .post(url, formData)
+    .post(url, file)
     .then((res) => res.data)
     .catch((err) => {
       throw err;

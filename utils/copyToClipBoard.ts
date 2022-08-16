@@ -1,4 +1,4 @@
-const copyToClipBoard = (data) => {
+const copyToClipBoard = (data: any) => {
   navigator.clipboard
     .writeText(data)
     .then(() => {

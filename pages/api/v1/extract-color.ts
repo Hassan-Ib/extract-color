@@ -11,6 +11,8 @@ const generateColor = async (req: NextApiRequest, res: NextApiResponse) => {
       method,
       body: { data: image },
     } = req;
+    // console.log(req.body);
+
     if (method !== "POST") {
       res.status(405).json({
         error: { message: "request method not allowed for this resource" },
@@ -38,7 +40,7 @@ const generateColor = async (req: NextApiRequest, res: NextApiResponse) => {
     // console.log("imagga server response result", result.data);
     return res.status(200).json({ data: result.data.result.colors });
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
     return res.status(400).json({
       data: error,
     });

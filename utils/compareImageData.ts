@@ -1,4 +1,7 @@
-export const compareImageData = (imageData1: File, imageData2: File) => {
+export const compareImageData = (
+  imageData1: FileList,
+  imageData2: FileList
+) => {
   if (imageData1.length !== imageData2.length) {
     return false;
   }

@@ -1,9 +1,9 @@
 import Color from "color";
-import type { rgb } from "./types";
+import type { IRGB } from "./types";
 // /**
 //  *
 //  * @param {string} hex
-//  * @returns object -> rgb attricbutes
+//  * @returns object -> IRGB attricbutes
 //  */
 // export const hexToRgb = (hex) => {
 //   if (hex.length < 3) throw "hex value should be at least 3 characters or more";
@@ -11,7 +11,7 @@ import type { rgb } from "./types";
 //   return;
 // };
 
-const rgbToHex = ([r, g, b]: rgb) => {
+const rgbToHex = ([r, g, b]: IRGB) => {
   let RR = r.toString(16).length == 1 ? "0" + r.toString(16) : r.toString(16);
   let GG = g.toString(16).length == 1 ? "0" + g.toString(16) : g.toString(16);
   let BB = b.toString(16).length == 1 ? "0" + b.toString(16) : b.toString(16);
@@ -25,7 +25,7 @@ const rgbToHex = ([r, g, b]: rgb) => {
 // g = g * shadeFactor
 // b = b * shadeFactor
 // the smaller the shadeFactor, the darker the color will be
-const shade = ([currentR, currentG, currentB]: rgb, shadeFactor: number) => {
+const shade = ([currentR, currentG, currentB]: IRGB, shadeFactor: number) => {
   // const newR = currentR * (1 - shadeFactor);
   // const newG = currentG * (1 - shadeFactor);
   // const newB = currentB * (1 - shadeFactor);
@@ -44,7 +44,7 @@ const shade = ([currentR, currentG, currentB]: rgb, shadeFactor: number) => {
 // g = g + ( tintFactor * (255 - g))
 // b = b + ( tintFactor * (255 - b))
 // the greater the tintFactor, the more light the color will be
-const tint = ([currentR, currentG, currentB]: rgb, tintFactor: number) => {
+const tint = ([currentR, currentG, currentB]: IRGB, tintFactor: number) => {
   const newR = Math.floor(currentR + tintFactor * (255 - currentR));
   const newG = Math.floor(currentG + tintFactor * (255 - currentG));
   const newB = Math.floor(currentB + tintFactor * (255 - currentB));
@@ -57,11 +57,11 @@ const tint = ([currentR, currentG, currentB]: rgb, tintFactor: number) => {
 
 /**
  *
- * @param {array} rgb
+ * @param {array} IRGB
  * @param {number} count
  * @returns original color plus count number of shades of the color as an array of hex values
  */
-const getShades = ([r, g, b]: rgb, count: number) => {
+const getShades = ([r, g, b]: IRGB, count: number) => {
   const shades = [];
   const factor = 1 / (count + 1);
   for (let i = 1; i <= count + 1; i++) {
@@ -75,12 +75,12 @@ const getShades = ([r, g, b]: rgb, count: number) => {
 
 /**
  *
- * @param {array} rgb
+ * @param {array} IRGB
  * @param {number} count
  * @returns count number of tints as an array of hex values
  */
 
-const getTints = ([r, g, b]: rgb, count: number) => {
+const getTints = ([r, g, b]: IRGB, count: number) => {
   const tints = [];
   const factor = 1 / (count + 1);
 
@@ -136,7 +136,7 @@ const getTints = ([r, g, b]: rgb, count: number) => {
 //   return tints;
 // };
 
-export const getColorPalette = ([r, g, b]: rgb) => {
+export const getColorPalette = ([r, g, b]: IRGB) => {
   // console.log(r, g, b);
   return [
     ...getTints([r, g, b], 5).reverse(),
@@ -145,7 +145,7 @@ export const getColorPalette = ([r, g, b]: rgb) => {
 };
 
 // export const getColorPalette = ([r, g, b]) => {
-//   const color = Color.rgb([r, g, b]);
+//   const color = Color.IRGB([r, g, b]);
 //   console.log(r, g, b);
 //   return [...getShades(color, 4).reverse(), ...getTints(color, 5)];
 // };
