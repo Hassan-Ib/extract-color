@@ -22,7 +22,7 @@ const getMonochromeColors = async (
 ) => {
   const QUERY = `scheme?${colorFormat}=${color}&mode=${mode}&count=9`;
   const url = COLORAPI_BASE_URL + QUERY;
-  console.log(url);
+  // console.log(url);
   return fetch(url)
     .then((res) => res.json())
     .catch((err) => {
