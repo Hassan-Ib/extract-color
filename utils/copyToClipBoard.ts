@@ -2,11 +2,11 @@ const copyToClipBoard = (data: any) => {
   navigator.clipboard
     .writeText(data)
     .then(() => {
-      console.log("wrote to clipboard");
+      // console.log("wrote to clipboard");
     })
     .catch((err) => {
       alert("Unable to copy to clipboard");
-      console.log("unable to write to clipboard");
+      // console.log("unable to write to clipboard");
     });
 };
 
