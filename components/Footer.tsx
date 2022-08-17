@@ -4,7 +4,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className="text-sm font-semibold text-center mb-20 gap-1">
+    <footer className="text-sm font-semibold text-center mb-20 gap-1 px-2">
       Made by{" "}
       <a
         href="https://hassan-ib.vercel.app/"

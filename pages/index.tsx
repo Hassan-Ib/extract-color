@@ -64,7 +64,7 @@ const Home: NextPage = () => {
           </ul>
         </div>
         {hexColors.length >= 1 && (
-          <div className="flex flex-col md:flex-row gap-8 mx-auto  items-center justify-center mt-20">
+          <div className="flex flex-col flex-wrap md:flex-row gap-8 mx-auto  items-center justify-center mt-20">
             {hexColors.map((hexColor, key) => (
               <ColorBox key={key} color={hexColor} />
             ))}
